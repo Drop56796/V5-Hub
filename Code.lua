@@ -57,7 +57,6 @@ toggleButton.BackgroundTransparency = 0.5
 toggleButton.ZIndex = 3
 toggleButton.Parent = frame
 
--- 为按钮添加圆角
 local buttonUICorner = Instance.new("UICorner")
 buttonUICorner.CornerRadius = UDim.new(0, 12)
 buttonUICorner.Parent = toggleButton
@@ -79,7 +78,7 @@ end)
 local function createButton(name, scriptUrl, yOffset)
     local btn = Instance.new("TextButton")
     btn.Text = name
-    btn.Size = UDim2.new(0, 200, 0, 60) -- 增加按钮宽度
+    btn.Size = UDim2.new(0, 260, 0, 60) -- 增加按钮宽度
     btn.Position = UDim2.new(0, 10, 0, yOffset)
     btn.Font = Enum.Font.Oswald
     btn.TextSize = 25
@@ -110,3 +109,15 @@ createButton("Hardcore Another", "https://raw.githubusercontent.com/plamen6789/H
 createButton("Psychotic", "https://raw.githubusercontent.com/Drop56796/Psychotic-mode/main/0.lua", 40 + buttonSpacing)
 createButton("Hamor", "https://raw.githubusercontent.com/munciseek/Scriptmode/mode/Hamor", 50 + buttonSpacing)
 createButton("Extreme", "https://raw.githubusercontent.com/munciseek/Scriptmode/main/Extreme", 60 + buttonSpacing)
+createButton("Insane V5", "https://raw.githubusercontent.com/thefigureblack/doors/main/insanemodev5.lua", 70 + buttonSpacing)
+createButton("Insane V6", "https://raw.githubusercontent.com/Drop56796/InsaneV6/main/InsaneV6.lua", 80 + buttonSpacing)
+createButton("impossible", "https://raw.githubusercontent.com/Drop56796/impossible-mode/main/impossible.lua", 90 + buttonSpacing)
+createButton("DevTroll", "https://glot.io/snippets/gotfeffesc/raw/main.lua", 100 + buttonSpacing)
+createButton("Fear", "https://raw.githubusercontent.com/cool59572/freestuff/main/Mods/FearMode.lua", 110 + buttonSpacing)
+createButton("Hazy", "https://raw.githubusercontent.com/Drop56796/Jabiess-Hazy-Mode-/main/Hazy%20Mode.lua", 120 + buttonSpacing)
+createButton("Endless", "https://raw.githubusercontent.com/munciseek/Scriptmode/mode/Endless", 130 + buttonSpacing)
+createButton("Nightmare(Soon Fixed)", "https://raw.githubusercontent.com/Drop56796/nightmare/main/nightmare%20mode.lua", 140 + buttonSpacing)
+createButton("Furry(Gay mode)", "https://raw.githubusercontent.com/munciseek/Scriptmode/mode/Furry", 150 + buttonSpacing)
+createButton("Cat(Gay mode)", "https://raw.githubusercontent.com/munciseek/Scriptmode/mode/Cat", 160 + buttonSpacing)
+createButton("Fragmented V4", "https://raw.githubusercontent.com/munciseek/Scriptmode/main/Fragmented", 170 + buttonSpacing)
+createButton("Birthday", "https://raw.githubusercontent.com/munciseek/Scriptmode/mode/Birthday", 180 + buttonSpacing)
