@@ -1,8 +1,6 @@
--- 创建屏幕GUI
 local screenGui = Instance.new("ScreenGui")
 screenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 
--- 创建外围圆角边框框架
 local outerFrame = Instance.new("Frame")
 outerFrame.Parent = screenGui
 outerFrame.AnchorPoint = Vector2.new(0.5, 0.5)
@@ -12,28 +10,24 @@ outerFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 0) -- 黄色背景
 outerFrame.BackgroundTransparency = 0.5
 outerFrame.ZIndex = 1
 
--- 为外围边框添加圆角
 local outerUICorner = Instance.new("UICorner")
 outerUICorner.CornerRadius = UDim.new(0, 20)
 outerUICorner.Parent = outerFrame
 
--- 创建滚动框架
-local scrollingFrame = Instance.new("ScrollingFrame")
-scrollingFrame.Parent = outerFrame
-scrollingFrame.AnchorPoint = Vector2.new(0.5, 0.5)
-scrollingFrame.Size = UDim2.new(0, 700, 0, 600)
-scrollingFrame.Position = UDim2.new(0.5, 0, 0.5, 0)
-scrollingFrame.CanvasSize = UDim2.new(0, 0, 0, frame.Size.Y.Offset / 20)
-scrollingFrame.ScrollBarThickness = 12
+local newScrollingFrame = Instance.new("ScrollingFrame")
+newScrollingFrame.Parent = outerFrame
+newScrollingFrame.AnchorPoint = Vector2.new(0.5, 0.5)
+newScrollingFrame.Size = UDim2.new(0, 700, 0, 600)
+newScrollingFrame.Position = UDim2.new(0.5, 0, 0.5, 0)
+newScrollingFrame.CanvasSize = UDim2.new(0, 0, 0, 1200) -- 根据内容调整
+newScrollingFrame.ScrollBarThickness = 12
 
--- 为滚动框架添加圆角
-local scrollingUICorner = Instance.new("UICorner")
-scrollingUICorner.CornerRadius = UDim.new(0, 12)
-scrollingUICorner.Parent = scrollingFrame
+local newScrollingUICorner = Instance.new("UICorner")
+newScrollingUICorner.CornerRadius = UDim.new(0, 12)
+newScrollingUICorner.Parent = newScrollingFrame
 
--- 创建内部圆角边框框架
 local frame = Instance.new("Frame")
-frame.Parent = scrollingFrame
+frame.Parent = newScrollingFrame
 frame.AnchorPoint = Vector2.new(0.5, 0.5)
 frame.Size = UDim2.new(0, 700, 0, 600)
 frame.Position = UDim2.new(0.5, 0, 0.5, 0)
@@ -41,12 +35,11 @@ frame.BackgroundColor3 = Color3.new(0.1, 0.1, 0.1)
 frame.BackgroundTransparency = 0.5
 frame.ZIndex = 2
 
--- 创建内部圆角UI
 local uiCorner = Instance.new("UICorner")
 uiCorner.CornerRadius = UDim.new(0, 12)
 uiCorner.Parent = frame
 
-local textLabel = Instance.new("TextLabel")
+textLabel = Instance.new("TextLabel")
 textLabel.Text = "Trauma Hub V5"
 textLabel.AnchorPoint = Vector2.new(0, 0) -- 锚点设置为左上角
 textLabel.Size = UDim2.new(0, 200, 0, 50) -- 调整大小
