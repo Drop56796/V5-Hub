@@ -17,9 +17,23 @@ local outerUICorner = Instance.new("UICorner")
 outerUICorner.CornerRadius = UDim.new(0, 20)
 outerUICorner.Parent = outerFrame
 
+-- 创建滚动框架
+local scrollingFrame = Instance.new("ScrollingFrame")
+scrollingFrame.Parent = outerFrame
+scrollingFrame.AnchorPoint = Vector2.new(0.5, 0.5)
+scrollingFrame.Size = UDim2.new(0, 700, 0, 600)
+scrollingFrame.Position = UDim2.new(0.5, 0, 0.5, 0)
+scrollingFrame.CanvasSize = UDim2.new(0, 0, 0, frame.Size.Y.Offset / 20)
+scrollingFrame.ScrollBarThickness = 12
+
+-- 为滚动框架添加圆角
+local scrollingUICorner = Instance.new("UICorner")
+scrollingUICorner.CornerRadius = UDim.new(0, 12)
+scrollingUICorner.Parent = scrollingFrame
+
 -- 创建内部圆角边框框架
 local frame = Instance.new("Frame")
-frame.Parent = outerFrame
+frame.Parent = scrollingFrame
 frame.AnchorPoint = Vector2.new(0.5, 0.5)
 frame.Size = UDim2.new(0, 700, 0, 600)
 frame.Position = UDim2.new(0.5, 0, 0.5, 0)
@@ -32,7 +46,6 @@ local uiCorner = Instance.new("UICorner")
 uiCorner.CornerRadius = UDim.new(0, 12)
 uiCorner.Parent = frame
 
--- 创建文本标签
 local textLabel = Instance.new("TextLabel")
 textLabel.Text = "Trauma Hub V5"
 textLabel.AnchorPoint = Vector2.new(0, 0) -- 锚点设置为左上角
@@ -45,7 +58,6 @@ textLabel.TextScaled = true
 textLabel.TextSize = 36
 textLabel.Parent = frame
 
--- 创建切换按钮
 local toggleButton = Instance.new("TextButton")
 toggleButton.Text = "script mode"
 toggleButton.Size = UDim2.new(0, 100, 0, 50)
@@ -61,7 +73,6 @@ local buttonUICorner = Instance.new("UICorner")
 buttonUICorner.CornerRadius = UDim.new(0, 12)
 buttonUICorner.Parent = toggleButton
 
--- 创建按钮框架
 local buttonFrame = Instance.new("Frame")
 buttonFrame.Size = UDim2.new(0, 100, 0, 300)
 buttonFrame.Position = UDim2.new(0, toggleButton.Position.X.Offset + 110, 0, toggleButton.Position.Y.Offset)
@@ -69,12 +80,10 @@ buttonFrame.BackgroundTransparency = 1
 buttonFrame.Parent = frame
 buttonFrame.Visible = false
 
--- 切换按钮的点击事件
 toggleButton.MouseButton1Click:Connect(function()
     buttonFrame.Visible = not buttonFrame.Visible
 end)
 
--- 创建按钮并绑定脚本的函数
 local function createButton(name, scriptUrl, yOffset)
     local btn = Instance.new("TextButton")
     btn.Text = name
@@ -86,13 +95,11 @@ local function createButton(name, scriptUrl, yOffset)
     btn.BackgroundTransparency = 0.5
     btn.ZIndex = 3
     btn.Parent = buttonFrame
-
-    -- 为按钮添加圆角
+    
     local btnUICorner = Instance.new("UICorner")
     btnUICorner.CornerRadius = UDim.new(0, 8)
     btnUICorner.Parent = btn
-
-    -- 按钮点击事件，绑定脚本
+    
     btn.MouseButton1Click:Connect(function()
         loadstring(game:HttpGet(scriptUrl))()
     end)
@@ -121,3 +128,40 @@ createButton("Furry(Gay mode)", "https://raw.githubusercontent.com/munciseek/Scr
 createButton("Cat(Gay mode)", "https://raw.githubusercontent.com/munciseek/Scriptmode/mode/Cat", 160 + buttonSpacing)
 createButton("Fragmented V4", "https://raw.githubusercontent.com/munciseek/Scriptmode/main/Fragmented", 170 + buttonSpacing)
 createButton("Birthday", "https://raw.githubusercontent.com/munciseek/Scriptmode/mode/Birthday", 180 + buttonSpacing)
+
+local userInputService = game:GetService("UserInputService")
+local dragging = false
+local dragInput
+local dragStart
+local startPos
+
+local function update(input)
+    local delta = input.Position - dragStart
+    mainFrame.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+end
+
+mainFrame.InputBegan:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.Touch or input.UserInputType == Enum.UserInputType.MouseButton1 then
+        dragging = true
+        dragStart = input.Position
+        startPos = mainFrame.Position
+
+        input.Changed:Connect(function()
+            if input.UserInputState == Enum.UserInputState.End then
+                dragging = false
+            end
+        end)
+    end
+end)
+
+mainFrame.InputChanged:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.Touch or input.UserInputType == Enum.UserInputType.MouseMovement then
+        dragInput = input
+    end
+end)
+
+userInputService.InputChanged:Connect(function(input)
+    if dragging and input == dragInput then
+        update(input)
+    end
+end)
