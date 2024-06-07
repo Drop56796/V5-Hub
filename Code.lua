@@ -19,8 +19,8 @@ newScrollingFrame.Parent = outerFrame
 newScrollingFrame.AnchorPoint = Vector2.new(0.5, 0.5)
 newScrollingFrame.Size = UDim2.new(0, 700, 0, 600)
 newScrollingFrame.Position = UDim2.new(0.5, 0, 0.5, 0)
-newScrollingFrame.CanvasSize = UDim2.new(0, 0, 0, 2000) -- 根据内容调整
-newScrollingFrame.ScrollBarThickness = 12
+newScrollingFrame.CanvasSize = UDim2.new(0, 0, 0, 400) -- 根据内容调整
+newScrollingFrame.ScrollBarThickness = 5
 
 local newScrollingUICorner = Instance.new("UICorner")
 newScrollingUICorner.CornerRadius = UDim.new(0, 12)
@@ -80,7 +80,7 @@ end)
 local function createButton(name, scriptUrl, yOffset)
     local btn = Instance.new("TextButton")
     btn.Text = name
-    btn.Size = UDim2.new(0, 260, 0, 60) -- 增加按钮宽度
+    btn.Size = UDim2.new(0, 260, 0, 40) -- 增加按钮宽度
     btn.Position = UDim2.new(0, 10, 0, yOffset)
     btn.Font = Enum.Font.Oswald
     btn.TextSize = 25
@@ -119,8 +119,8 @@ createButton("Endless", "https://raw.githubusercontent.com/munciseek/Scriptmode/
 createButton("Nightmare(Soon Fixed)", "https://raw.githubusercontent.com/Drop56796/nightmare/main/nightmare%20mode.lua", 830 + buttonSpacing)
 createButton("Furry(Gay mode)", "https://raw.githubusercontent.com/munciseek/Scriptmode/mode/Furry", 890 + buttonSpacing)
 createButton("Cat(Gay mode)", "https://raw.githubusercontent.com/munciseek/Scriptmode/mode/Cat", 950 + buttonSpacing)
-createButton("Fragmented V4", "https://raw.githubusercontent.com/munciseek/Scriptmode/main/Fragmented", 1110 + buttonSpacing)
-createButton("Birthday", "https://raw.githubusercontent.com/munciseek/Scriptmode/mode/Birthday", 1170 + buttonSpacing)
+createButton("Fragmented V4", "https://raw.githubusercontent.com/munciseek/Scriptmode/main/Fragmented", 975 + buttonSpacing)
+createButton("Birthday", "https://raw.githubusercontent.com/munciseek/Scriptmode/mode/Birthday", 1000 + buttonSpacing)
 
 local userInputService = game:GetService("UserInputService")
 local dragging = true
