@@ -73,10 +73,10 @@ end)
 local function createButton(name, scriptUrl, yOffset)
     local btn = Instance.new("TextButton")
     btn.Text = name
-    btn.Size = UDim2.new(0, 260, 0, 40) -- 增加按钮宽度
+    btn.Size = UDim2.new(0, 110, 0, 40) -- 增加按钮宽度
     btn.Position = UDim2.new(0, 10, 0, yOffset)
     btn.Font = Enum.Font.Oswald
-    btn.TextSize = 25
+    btn.TextSize = 15
     btn.BackgroundColor3 = Color3.fromRGB(255, 255, 0)
     btn.BackgroundTransparency = 0.5
     btn.ZIndex = 3
@@ -92,28 +92,28 @@ local function createButton(name, scriptUrl, yOffset)
 end
 
 -- 按钮之间的垂直间距
-local buttonSpacing = 50
+local buttonSpacing = 30
 
 -- 创建按钮并绑定脚本
 createButton("Hardcore Remake(Fluxus Only)", "https://raw.githubusercontent.com/Drop56796/Hardcore-Remake/main/Hardcore%20Remake(Made%20by%20Jay).lua", 10)
-createButton("Hardcore", "https://raw.githubusercontent.com/JevilOhio/Doors-Hardcore-noonie-ver-/main/Doors%20Hardcore%20(noonie)", 60 + buttonSpacing)
-createButton("Hardcore but bad", "https://raw.githubusercontent.com/munciseek/Scriptmode/mode/Hardcore-but-bad", 110 + buttonSpacing)
-createButton("Hardcore Another", "https://raw.githubusercontent.com/plamen6789/HardcoreScriptDOORS/main/HardcoreModeScript", 170 + buttonSpacing)
-createButton("Psychotic", "https://raw.githubusercontent.com/Drop56796/Psychotic-mode/main/0.lua", 230 + buttonSpacing)
-createButton("Hamor", "https://raw.githubusercontent.com/munciseek/Scriptmode/mode/Hamor", 290 + buttonSpacing)
-createButton("Extreme", "https://raw.githubusercontent.com/munciseek/Scriptmode/main/Extreme", 350 + buttonSpacing)
-createButton("Insane V5", "https://raw.githubusercontent.com/thefigureblack/doors/main/insanemodev5.lua", 410 + buttonSpacing)
-createButton("Insane V6", "https://raw.githubusercontent.com/Drop56796/InsaneV6/main/InsaneV6.lua", 470 + buttonSpacing)
-createButton("impossible", "https://raw.githubusercontent.com/Drop56796/impossible-mode/main/impossible.lua", 530 + buttonSpacing)
-createButton("DevTroll", "https://glot.io/snippets/gotfeffesc/raw/main.lua", 590 + buttonSpacing)
-createButton("Fear", "https://raw.githubusercontent.com/cool59572/freestuff/main/Mods/FearMode.lua", 650 + buttonSpacing)
-createButton("Hazy", "https://raw.githubusercontent.com/Drop56796/Jabiess-Hazy-Mode-/main/Hazy%20Mode.lua", 710 + buttonSpacing)
-createButton("Endless", "https://raw.githubusercontent.com/munciseek/Scriptmode/mode/Endless", 770 + buttonSpacing)
-createButton("Nightmare(Soon Fixed)", "https://raw.githubusercontent.com/Drop56796/nightmare/main/nightmare%20mode.lua", 830 + buttonSpacing)
-createButton("Furry(Gay mode)", "https://raw.githubusercontent.com/munciseek/Scriptmode/mode/Furry", 890 + buttonSpacing)
-createButton("Cat(Gay mode)", "https://raw.githubusercontent.com/munciseek/Scriptmode/mode/Cat", 950 + buttonSpacing)
-createButton("Fragmented V4", "https://raw.githubusercontent.com/munciseek/Scriptmode/main/Fragmented", 975 + buttonSpacing)
-createButton("Birthday", "https://raw.githubusercontent.com/munciseek/Scriptmode/mode/Birthday", 1000 + buttonSpacing)
+createButton("Hardcore", "https://raw.githubusercontent.com/JevilOhio/Doors-Hardcore-noonie-ver-/main/Doors%20Hardcore%20(noonie)", 40 + buttonSpacing)
+createButton("Hardcore but bad", "https://raw.githubusercontent.com/munciseek/Scriptmode/mode/Hardcore-but-bad", 70 + buttonSpacing)
+createButton("Hardcore Another", "https://raw.githubusercontent.com/plamen6789/HardcoreScriptDOORS/main/HardcoreModeScript", 100 + buttonSpacing)
+createButton("Psychotic", "https://raw.githubusercontent.com/Drop56796/Psychotic-mode/main/0.lua", 130 + buttonSpacing)
+createButton("Hamor", "https://raw.githubusercontent.com/munciseek/Scriptmode/mode/Hamor", 160 + buttonSpacing)
+createButton("Extreme", "https://raw.githubusercontent.com/munciseek/Scriptmode/main/Extreme", 190 + buttonSpacing)
+createButton("Insane V5", "https://raw.githubusercontent.com/thefigureblack/doors/main/insanemodev5.lua", 210 + buttonSpacing)
+createButton("Insane V6", "https://raw.githubusercontent.com/Drop56796/InsaneV6/main/InsaneV6.lua", 240 + buttonSpacing)
+createButton("impossible", "https://raw.githubusercontent.com/Drop56796/impossible-mode/main/impossible.lua", 270 + buttonSpacing)
+createButton("DevTroll", "https://glot.io/snippets/gotfeffesc/raw/main.lua", 300 + buttonSpacing)
+createButton("Fear", "https://raw.githubusercontent.com/cool59572/freestuff/main/Mods/FearMode.lua", 330 + buttonSpacing)
+createButton("Hazy", "https://raw.githubusercontent.com/Drop56796/Jabiess-Hazy-Mode-/main/Hazy%20Mode.lua", 360 + buttonSpacing)
+createButton("Endless", "https://raw.githubusercontent.com/munciseek/Scriptmode/mode/Endless", 390 + buttonSpacing)
+createButton("Nightmare(Soon Fixed)", "https://raw.githubusercontent.com/Drop56796/nightmare/main/nightmare%20mode.lua", 410 + buttonSpacing)
+createButton("Furry(Gay mode)", "https://raw.githubusercontent.com/munciseek/Scriptmode/mode/Furry", 440 + buttonSpacing)
+createButton("Cat(Gay mode)", "https://raw.githubusercontent.com/munciseek/Scriptmode/mode/Cat", 470 + buttonSpacing)
+createButton("Fragmented V4", "https://raw.githubusercontent.com/munciseek/Scriptmode/main/Fragmented", 500 + buttonSpacing)
+createButton("Birthday", "https://raw.githubusercontent.com/munciseek/Scriptmode/mode/Birthday", 530 + buttonSpacing)
 
 local userInputService = game:GetService("UserInputService")
 local dragging = true
