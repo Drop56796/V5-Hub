@@ -99,7 +99,7 @@ local function createButton(name, scriptUrl, yOffset)
 end
 
 -- 按钮之间的垂直间距
-local buttonSpacing = 30
+local buttonSpacing = 50
 
 -- 创建按钮并绑定脚本
 createButton("Hardcore Remake(Fluxus Only)", "https://raw.githubusercontent.com/Drop56796/Hardcore-Remake/main/Hardcore%20Remake(Made%20by%20Jay).lua", 10)
