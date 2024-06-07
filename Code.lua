@@ -2,21 +2,6 @@
 local screenGui = Instance.new("ScreenGui")
 screenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 
--- 创建外围圆角边框框架
-local outerFrame = Instance.new("Frame")
-outerFrame.Parent = screenGui
-outerFrame.AnchorPoint = Vector2.new(0.5, 0.5)
-outerFrame.Size = UDim2.new(0, 800, 0, 620)
-outerFrame.Position = UDim2.new(0.5, 0, 0.5, 0)
-outerFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 0) -- 黄色背景
-outerFrame.BackgroundTransparency = 0.5
-outerFrame.ZIndex = 1
-
--- 为外围边框添加圆角
-local outerUICorner = Instance.new("UICorner")
-outerUICorner.CornerRadius = UDim.new(0, 20)
-outerUICorner.Parent = outerFrame
-
 -- 创建内部圆角边框框架
 local frame = Instance.new("Frame")
 frame.Parent = outerFrame
