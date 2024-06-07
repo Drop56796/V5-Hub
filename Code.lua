@@ -116,7 +116,12 @@ local buttons1 = {
     {"Hazy", "https://raw.githubusercontent.com/Drop56796/Jabiess-Hazy-Mode-/main/Hazy%20Mode.lua"},
     {"Endless", "https://raw.githubusercontent.com/munciseek/Scriptmode/mode/Endless"},
     {"Birthday", "https://raw.githubusercontent.com/munciseek/Scriptmode/mode/Birthday"},
-    {"Fragmented V4", "https://raw.githubusercontent.com/munciseek/Scriptmode/main/Fragmented"}
+    {"Fragmented V4", "https://raw.githubusercontent.com/munciseek/Scriptmode/main/Fragmented"},
+    {"Cat(Gay)", "https://raw.githubusercontent.com/munciseek/Scriptmode/mode/Cat"},
+    {"Furry(F**K YOU)", "https://raw.githubusercontent.com/munciseek/Scriptmode/mode/Furry"},
+    {"Devil", "https://raw.githubusercontent.com/munciseek/Scriptmode/mode/Devil"},
+    {"New Nightmare", "https://raw.githubusercontent.com/munciseek/Scriptmode/mode/Nightmare"},
+    {"Insanity", "https://raw.githubusercontent.com/munciseek/Scriptmode/mode/lnsanity"}
 }
 
 -- 创建script mode按钮并放置在网格中
