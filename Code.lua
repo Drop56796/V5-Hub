@@ -114,7 +114,7 @@ local buttons1 = {
     {"DevTroll", "https://glot.io/snippets/gotfeffesc/raw/main.lua"},
     {"Fear", "https://raw.githubusercontent.com/cool59572/freestuff/main/Mods/FearMode.lua"},
     {"Hazy", "https://raw.githubusercontent.com/Drop56796/Jabiess-Hazy-Mode-/main/Hazy%20Mode.lua"},
-    {"Endless", "https://raw.githubusercontent.com/munciseek/Scriptmode/mode/Endless"}，
+    {"Endless", "https://raw.githubusercontent.com/munciseek/Scriptmode/mode/Endless"},
     {"Birthday", "https://raw.githubusercontent.com/munciseek/Scriptmode/mode/Birthday"},
     {"Fragmented V4", "https://raw.githubusercontent.com/munciseek/Scriptmode/main/Fragmented"}
 }
@@ -132,7 +132,7 @@ end
 local toggleButton2 = Instance.new("TextButton")
 toggleButton2.Text = "Other"
 toggleButton2.Size = UDim2.new(0, 100, 0, 50)
-toggleButton2.Position = UDim2.new(0, 120, 0, toggleButton1.Position.Y.Offset + 70) -- 新按钮在原按钮右侧
+toggleButton2.Position = UDim2.new(0, 120, 0, toggleButton1.Position.Y.Offset) -- 新按钮在原按钮右侧
 toggleButton2.Font = Enum.Font.Oswald
 toggleButton2.TextSize = 24
 toggleButton2.BackgroundColor3 = Color3.fromRGB(255, 255, 0) -- 黄色背景
@@ -170,26 +170,25 @@ for i, button in ipairs(buttons2) do
     local col = (i - 1) % buttonsPerRow
     local xOffset = col * buttonSpacingX
     local yOffset = row * buttonSpacingY
-    local position = UDim2.new(0, xOffset, 0, yOffset)
-    createButton(button[1], button[2], position, buttonFrame2)
+    createButton(button[1], button[2], xOffset, yOffset, buttonFrame2)
 end
 
 local userInputService = game:GetService("UserInputService")
-local dragging = true
+local dragging = false
 local dragInput
 local dragStart
 local startPos
 
 local function update(input)
     local delta = input.Position - dragStart
-    mainFrame.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+    frame.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
 end
 
-mainFrame.InputBegan:Connect(function(input)
+frame.InputBegan:Connect(function(input)
     if input.UserInputType == Enum.UserInputType.Touch or input.UserInputType == Enum.UserInputType.MouseButton1 then
         dragging = true
         dragStart = input.Position
-        startPos = mainFrame.Position
+        startPos = frame.Position
 
         input.Changed:Connect(function()
             if input.UserInputState == Enum.UserInputState.End then
@@ -199,7 +198,7 @@ mainFrame.InputBegan:Connect(function(input)
     end
 end)
 
-mainFrame.InputChanged:Connect(function(input)
+frame.InputChanged:Connect(function(input)
     if input.UserInputType == Enum.UserInputType.Touch or input.UserInputType == Enum.UserInputType.MouseMovement then
         dragInput = input
     end
