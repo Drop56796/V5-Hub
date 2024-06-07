@@ -32,55 +32,58 @@ local uiCorner = Instance.new("UICorner")
 uiCorner.CornerRadius = UDim.new(0, 12)
 uiCorner.Parent = frame
 
-textLabel = Instance.new("TextLabel")
+-- 创建文本标签
+local textLabel = Instance.new("TextLabel")
 textLabel.Text = "Trauma Hub V5"
-textLabel.AnchorPoint = Vector2.new(0, 0) -- 锚点设置为左上角
-textLabel.Size = UDim2.new(0, 200, 0, 50) -- 调整大小
-textLabel.Position = UDim2.new(0, 10, 0, 10) -- 移动到左上角
+textLabel.AnchorPoint = Vector2.new(0, 0)
+textLabel.Size = UDim2.new(0, 200, 0, 50)
+textLabel.Position = UDim2.new(0, 10, 0, 10)
 textLabel.Font = Enum.Font.Oswald
-textLabel.TextColor3 = Color3.new(255/255, 222/255, 189/255)
+textLabel.TextColor3 = Color3.fromRGB(255, 222, 189)
 textLabel.BackgroundTransparency = 1
 textLabel.TextScaled = true
 textLabel.TextSize = 36
 textLabel.Parent = frame
 
-local toggleButton = Instance.new("TextButton")
-toggleButton.Text = "script mode"
-toggleButton.Size = UDim2.new(0, 100, 0, 50)
-toggleButton.Position = UDim2.new(0, 10, 0, textLabel.Position.Y.Offset + 120)
-toggleButton.Font = Enum.Font.Oswald
-toggleButton.TextSize = 24
-toggleButton.BackgroundColor3 = Color3.fromRGB(255, 255, 0) -- 黄色背景
-toggleButton.BackgroundTransparency = 0.5
-toggleButton.ZIndex = 3
-toggleButton.Parent = frame
+-- 创建script mode切换按钮
+local toggleButton1 = Instance.new("TextButton")
+toggleButton1.Text = "script mode"
+toggleButton1.Size = UDim2.new(0, 100, 0, 50)
+toggleButton1.Position = UDim2.new(0, 10, 0, textLabel.Position.Y.Offset + 70)
+toggleButton1.Font = Enum.Font.Oswald
+toggleButton1.TextSize = 24
+toggleButton1.BackgroundColor3 = Color3.fromRGB(255, 255, 0) -- 黄色背景
+toggleButton1.BackgroundTransparency = 0.5
+toggleButton1.ZIndex = 3
+toggleButton1.Parent = frame
 
-local buttonUICorner = Instance.new("UICorner")
-buttonUICorner.CornerRadius = UDim.new(0, 12)
-buttonUICorner.Parent = toggleButton
+local buttonUICorner1 = Instance.new("UICorner")
+buttonUICorner1.CornerRadius = UDim.new(0, 12)
+buttonUICorner1.Parent = toggleButton1
 
-local buttonFrame = Instance.new("Frame")
-buttonFrame.Size = UDim2.new(0, 100, 0, 300)
-buttonFrame.Position = UDim2.new(0, toggleButton.Position.X.Offset + 110, 0, toggleButton.Position.Y.Offset)
-buttonFrame.BackgroundTransparency = 1
-buttonFrame.Parent = frame
-buttonFrame.Visible = false
+-- 创建第一个按钮框架
+local buttonFrame1 = Instance.new("Frame")
+buttonFrame1.Size = UDim2.new(0, 600, 0, 500)
+buttonFrame1.Position = UDim2.new(0, toggleButton1.Position.X.Offset, 0, toggleButton1.Position.Y.Offset + 60)
+buttonFrame1.BackgroundTransparency = 1
+buttonFrame1.Parent = frame
+buttonFrame1.Visible = false
 
-toggleButton.MouseButton1Click:Connect(function()
-    buttonFrame.Visible = not buttonFrame.Visible
+toggleButton1.MouseButton1Click:Connect(function()
+    buttonFrame1.Visible = not buttonFrame1.Visible
 end)
 
-local function createButton(name, scriptUrl, yOffset)
+local function createButton(name, scriptUrl, xOffset, yOffset, parentFrame)
     local btn = Instance.new("TextButton")
     btn.Text = name
-    btn.Size = UDim2.new(0, 110, 0, 40) -- 增加按钮宽度
-    btn.Position = UDim2.new(0, 10, 0, yOffset)
+    btn.Size = UDim2.new(0, 135, 0, 40)
+    btn.Position = UDim2.new(0, xOffset, 0, yOffset)
     btn.Font = Enum.Font.Oswald
     btn.TextSize = 15
     btn.BackgroundColor3 = Color3.fromRGB(255, 255, 0)
     btn.BackgroundTransparency = 0.5
     btn.ZIndex = 3
-    btn.Parent = buttonFrame
+    btn.Parent = parentFrame
     
     local btnUICorner = Instance.new("UICorner")
     btnUICorner.CornerRadius = UDim.new(0, 8)
@@ -91,29 +94,85 @@ local function createButton(name, scriptUrl, yOffset)
     end)
 end
 
--- 按钮之间的垂直间距
-local buttonSpacing = 30
+-- 按钮之间的间距
+local buttonSpacingX = 150
+local buttonSpacingY = 50
+local buttonsPerRow = 4
 
--- 创建按钮并绑定脚本
-createButton("Hardcore Remake(Fluxus Only)", "https://raw.githubusercontent.com/Drop56796/Hardcore-Remake/main/Hardcore%20Remake(Made%20by%20Jay).lua", 10)
-createButton("Hardcore", "https://raw.githubusercontent.com/JevilOhio/Doors-Hardcore-noonie-ver-/main/Doors%20Hardcore%20(noonie)", 40 + buttonSpacing)
-createButton("Hardcore but bad", "https://raw.githubusercontent.com/munciseek/Scriptmode/mode/Hardcore-but-bad", 70 + buttonSpacing)
-createButton("Hardcore Another", "https://raw.githubusercontent.com/plamen6789/HardcoreScriptDOORS/main/HardcoreModeScript", 100 + buttonSpacing)
-createButton("Psychotic", "https://raw.githubusercontent.com/Drop56796/Psychotic-mode/main/0.lua", 130 + buttonSpacing)
-createButton("Hamor", "https://raw.githubusercontent.com/munciseek/Scriptmode/mode/Hamor", 160 + buttonSpacing)
-createButton("Extreme", "https://raw.githubusercontent.com/munciseek/Scriptmode/main/Extreme", 190 + buttonSpacing)
-createButton("Insane V5", "https://raw.githubusercontent.com/thefigureblack/doors/main/insanemodev5.lua", 210 + buttonSpacing)
-createButton("Insane V6", "https://raw.githubusercontent.com/Drop56796/InsaneV6/main/InsaneV6.lua", 240 + buttonSpacing)
-createButton("impossible", "https://raw.githubusercontent.com/Drop56796/impossible-mode/main/impossible.lua", 270 + buttonSpacing)
-createButton("DevTroll", "https://glot.io/snippets/gotfeffesc/raw/main.lua", 300 + buttonSpacing)
-createButton("Fear", "https://raw.githubusercontent.com/cool59572/freestuff/main/Mods/FearMode.lua", 330 + buttonSpacing)
-createButton("Hazy", "https://raw.githubusercontent.com/Drop56796/Jabiess-Hazy-Mode-/main/Hazy%20Mode.lua", 360 + buttonSpacing)
-createButton("Endless", "https://raw.githubusercontent.com/munciseek/Scriptmode/mode/Endless", 390 + buttonSpacing)
-createButton("Nightmare(Soon Fixed)", "https://raw.githubusercontent.com/Drop56796/nightmare/main/nightmare%20mode.lua", 410 + buttonSpacing)
-createButton("Furry(Gay mode)", "https://raw.githubusercontent.com/munciseek/Scriptmode/mode/Furry", 440 + buttonSpacing)
-createButton("Cat(Gay mode)", "https://raw.githubusercontent.com/munciseek/Scriptmode/mode/Cat", 470 + buttonSpacing)
-createButton("Fragmented V4", "https://raw.githubusercontent.com/munciseek/Scriptmode/main/Fragmented", 500 + buttonSpacing)
-createButton("Birthday", "https://raw.githubusercontent.com/munciseek/Scriptmode/mode/Birthday", 530 + buttonSpacing)
+-- 创建script mode按钮列表和绑定脚本
+local buttons1 = {
+    {"Hardcore Remake(Fluxus Only)", "https://raw.githubusercontent.com/Drop56796/Hardcore-Remake/main/Hardcore%20Remake(Made%20by%20Jay).lua"},
+    {"Hardcore", "https://raw.githubusercontent.com/JevilOhio/Doors-Hardcore-noonie-ver-/main/Doors%20Hardcore%20(noonie)"},
+    {"Hardcore but bad", "https://raw.githubusercontent.com/munciseek/Scriptmode/mode/Hardcore-but-bad"},
+    {"Hardcore Another", "https://raw.githubusercontent.com/plamen6789/HardcoreScriptDOORS/main/HardcoreModeScript"},
+    {"Psychotic", "https://raw.githubusercontent.com/Drop56796/Psychotic-mode/main/0.lua"},
+    {"Hamor", "https://raw.githubusercontent.com/munciseek/Scriptmode/mode/Hamor"},
+    {"Extreme", "https://raw.githubusercontent.com/munciseek/Scriptmode/main/Extreme"},
+    {"Insane V5", "https://raw.githubusercontent.com/thefigureblack/doors/main/insanemodev5.lua"},
+    {"Insane V6", "https://raw.githubusercontent.com/Drop56796/InsaneV6/main/InsaneV6.lua"},
+    {"impossible", "https://raw.githubusercontent.com/Drop56796/impossible-mode/main/impossible.lua"},
+    {"DevTroll", "https://glot.io/snippets/gotfeffesc/raw/main.lua"},
+    {"Fear", "https://raw.githubusercontent.com/cool59572/freestuff/main/Mods/FearMode.lua"},
+    {"Hazy", "https://raw.githubusercontent.com/Drop56796/Jabiess-Hazy-Mode-/main/Hazy%20Mode.lua"},
+    {"Endless", "https://raw.githubusercontent.com/munciseek/Scriptmode/mode/Endless"}，
+    {"Birthday", "https://raw.githubusercontent.com/munciseek/Scriptmode/mode/Birthday"},
+    {"Fragmented V4", "https://raw.githubusercontent.com/munciseek/Scriptmode/main/Fragmented"}
+}
+
+-- 创建script mode按钮并放置在网格中
+for i, button in ipairs(buttons1) do
+    local row = math.floor((i - 1) / buttonsPerRow)
+    local col = (i - 1) % buttonsPerRow
+    local xOffset = col * buttonSpacingX
+    local yOffset = row * buttonSpacingY
+    createButton(button[1], button[2], xOffset, yOffset, buttonFrame1)
+end
+
+-- 创建新的切换按钮
+local toggleButton2 = Instance.new("TextButton")
+toggleButton2.Text = "Other"
+toggleButton2.Size = UDim2.new(0, 100, 0, 50)
+toggleButton2.Position = UDim2.new(0, 120, 0, toggleButton1.Position.Y.Offset + 70) -- 新按钮在原按钮右侧
+toggleButton2.Font = Enum.Font.Oswald
+toggleButton2.TextSize = 24
+toggleButton2.BackgroundColor3 = Color3.fromRGB(255, 255, 0) -- 黄色背景
+toggleButton2.BackgroundTransparency = 0.5
+toggleButton2.ZIndex = 3
+toggleButton2.Parent = frame
+
+local buttonUICorner2 = Instance.new("UICorner")
+buttonUICorner2.CornerRadius = UDim.new(0, 12)
+buttonUICorner2.Parent = toggleButton2
+
+-- 创建第二个按钮框架
+local buttonFrame2 = Instance.new("Frame")
+buttonFrame2.Size = UDim2.new(0, 600, 0, 250)
+buttonFrame2.Position = UDim2.new(0, toggleButton2.Position.X.Offset, 0, toggleButton2.Position.Y.Offset + 60)
+buttonFrame2.BackgroundTransparency = 1
+buttonFrame2.Parent = frame
+buttonFrame2.Visible = false
+
+toggleButton2.MouseButton1Click:Connect(function()
+    buttonFrame2.Visible = not buttonFrame2.Visible
+end)
+
+-- 创建新按钮列表和绑定脚本
+local buttons2 = {
+    {"MSHUB", "https://raw.githubusercontent.com/mstudio45/MSDOORS/main/MSHUB_Loader.lua"},
+    {"Bobhub", "\104\116\116\112\115\58\47\47\112\97\115\116\101\98\105\110\46\99\111\109\47\114\97\119\47\54\53\84\119\84\56\106\97"},
+    {"Floor2 Candle", "https://raw.githubusercontent.com/Drop56796/Floor-2-candle-By-icherryKardess-/The-Floor-2-candle-(By-icherryKardess)/Floor2%20candle%20(The%20candle%20by%20icherrykardess).lua"},
+    {"Floor2 Package", "https://raw.githubusercontent.com/iCherryKardes/Doors/main/Floor%202%20Mod"}
+}
+
+-- 创建新按钮并放置在网格中
+for i, button in ipairs(buttons2) do
+    local row = math.floor((i - 1) / buttonsPerRow)
+    local col = (i - 1) % buttonsPerRow
+    local xOffset = col * buttonSpacingX
+    local yOffset = row * buttonSpacingY
+    local position = UDim2.new(0, xOffset, 0, yOffset)
+    createButton(button[1], button[2], position, buttonFrame2)
+end
 
 local userInputService = game:GetService("UserInputService")
 local dragging = true
