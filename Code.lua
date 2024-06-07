@@ -19,8 +19,8 @@ newScrollingFrame.Parent = outerFrame
 newScrollingFrame.AnchorPoint = Vector2.new(0.5, 0.5)
 newScrollingFrame.Size = UDim2.new(0, 700, 0, 600)
 newScrollingFrame.Position = UDim2.new(0.5, 0, 0.5, 0)
-newScrollingFrame.CanvasSize = UDim2.new(0, 0, 0, 400) -- 根据内容调整
-newScrollingFrame.ScrollBarThickness = 5
+newScrollingFrame.CanvasSize = UDim2.new(0, 0, 0, 1000) -- 根据内容调整
+newScrollingFrame.ScrollBarThickness = 12
 
 local newScrollingUICorner = Instance.new("UICorner")
 newScrollingUICorner.CornerRadius = UDim.new(0, 12)
@@ -99,7 +99,7 @@ local function createButton(name, scriptUrl, yOffset)
 end
 
 -- 按钮之间的垂直间距
-local buttonSpacing = 50
+local buttonSpacing = 30
 
 -- 创建按钮并绑定脚本
 createButton("Hardcore Remake(Fluxus Only)", "https://raw.githubusercontent.com/Drop56796/Hardcore-Remake/main/Hardcore%20Remake(Made%20by%20Jay).lua", 10)
