@@ -109,3 +109,4 @@ createButton("Hardcore but bad", "https://raw.githubusercontent.com/munciseek/Sc
 createButton("Hardcore Another", "https://raw.githubusercontent.com/plamen6789/HardcoreScriptDOORS/main/HardcoreModeScript", 30 + buttonSpacing)
 createButton("Psychotic", "https://raw.githubusercontent.com/Drop56796/Psychotic-mode/main/0.lua", 40 + buttonSpacing)
 createButton("Hamor", "https://raw.githubusercontent.com/munciseek/Scriptmode/mode/Hamor", 50 + buttonSpacing)
+createButton("Extreme", "https://raw.githubusercontent.com/munciseek/Scriptmode/main/Extreme", 60 + buttonSpacing)
