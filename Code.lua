@@ -19,7 +19,7 @@ newScrollingFrame.Parent = outerFrame
 newScrollingFrame.AnchorPoint = Vector2.new(0.5, 0.5)
 newScrollingFrame.Size = UDim2.new(0, 700, 0, 600)
 newScrollingFrame.Position = UDim2.new(0.5, 0, 0.5, 0)
-newScrollingFrame.CanvasSize = UDim2.new(0, 0, 0, 1200) -- 根据内容调整
+newScrollingFrame.CanvasSize = UDim2.new(0, 0, 0, 35) -- 根据内容调整
 newScrollingFrame.ScrollBarThickness = 12
 
 local newScrollingUICorner = Instance.new("UICorner")
