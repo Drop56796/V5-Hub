@@ -1,21 +1,10 @@
-
 -- 创建屏幕GUI
 local screenGui = Instance.new("ScreenGui")
 screenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 
--- 创建外部框架
-local outerFrame = Instance.new("Frame")
-outerFrame.Parent = screenGui
-outerFrame.AnchorPoint = Vector2.new(0.5, 0.5)
-outerFrame.Size = UDim2.new(0, 700, 0, 600)
-outerFrame.Position = UDim2.new(0.5, 0, 0.5, 0)
-outerFrame.BackgroundColor3 = Color3.new(0.1, 0.1, 0.1)
-outerFrame.BackgroundTransparency = 0.5
-outerFrame.ZIndex = 1
-
 -- 创建内部圆角边框框架
 local frame = Instance.new("Frame")
-frame.Parent = outerFrame -- 确保这里是outerFrame
+frame.Parent = screenGui
 frame.AnchorPoint = Vector2.new(0.5, 0.5)
 frame.Size = UDim2.new(0, 700, 0, 600)
 frame.Position = UDim2.new(0.5, 0, 0.5, 0)
@@ -162,7 +151,8 @@ local buttons2 = {
     {"MSHUB", "https://raw.githubusercontent.com/mstudio45/MSDOORS/main/MSHUB_Loader.lua"},
     {"FFJ1", "https://raw.githubusercontent.com/FFJ1/Roblox-Exploits/main/scripts/Loader.lua"},
     {"Floor2 Candle", "https://raw.githubusercontent.com/Drop56796/Floor-2-candle-By-icherryKardess-/The-Floor-2-candle-(By-icherryKardess)/Floor2%20candle%20(The%20candle%20by%20icherrykardess).lua"},
-    {"Floor2 Package", "https://raw.githubusercontent.com/iCherryKardes/Doors/main/Floor%202%20Mod"}
+    {"Floor2 Package", "https://raw.githubusercontent.com/iCherryKardes/Doors/main/Floor%202%20Mod"},
+    {"Vape V4", "https://raw.githubusercontent.com/Drop56796/Vape-V4/main/%E7%94%B5%E5%AD%90%E7%83%9FV4.lua"}
 }
 
 -- 创建新按钮并放置在网格中
@@ -173,11 +163,6 @@ for i, button in ipairs(buttons2) do
     local yOffset = row * buttonSpacingY
     createButton(button[1], button[2], xOffset, yOffset, buttonFrame2)
 end
-
-- 确保所有的UI元素都设置为可见
-screenGui.Enabled = true
-outerFrame.Visible = true
-frame.Visible = true
 
 local userInputService = game:GetService("UserInputService")
 local dragging = false
