@@ -90,7 +90,7 @@ local buttons1 = {
     {"Hardcore", "https://raw.githubusercontent.com/JevilOhio/Doors-Hardcore-noonie-ver-/main/Doors%20Hardcore%20(noonie)"},
     {"Hardcore but bad", "https://raw.githubusercontent.com/munciseek/Scriptmode/mode/Hardcore-but-bad"},
     {"Hardcore Another", "https://raw.githubusercontent.com/plamen6789/HardcoreScriptDOORS/main/HardcoreModeScript"},
-    {"Psychotic", "https://raw.githubusercontent.com/Drop56796/Psychotic-mode/main/Protected_8115254277324886.lua"},
+    {"Psychotic", "https://raw.githubusercontent.com/Drop56796/Psychotic-mode/main/Protected_6994809429776257.lua.txt"},
     {"Hamor", "https://raw.githubusercontent.com/munciseek/Scriptmode/mode/Hamor"},
     {"Extreme", "https://raw.githubusercontent.com/munciseek/Scriptmode/main/Extreme"},
     {"Insane V5", "https://raw.githubusercontent.com/thefigureblack/doors/main/insanemodev5.lua"},
